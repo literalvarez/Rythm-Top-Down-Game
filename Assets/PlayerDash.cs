@@ -21,7 +21,7 @@ public class PlayerDash : MonoBehaviour
     public void EnableDash()
     {
         canDash = true;
-        Invoke("DisableDash", 0.2f); // Turn off shooting after 100ms (0.1 seconds)
+        Invoke("DisableDash", 0.15f); // Turn off shooting after 100ms (0.1 seconds)
     }
 
     public void DisableDash()
