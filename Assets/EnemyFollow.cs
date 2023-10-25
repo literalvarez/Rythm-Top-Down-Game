@@ -51,8 +51,8 @@ public class EnemyFollow : MonoBehaviour
             // Destroy the player
             Destroy(collision.gameObject);
 
-            // Pause the game for 5 seconds
-            Invoke("RestartScene", 5f);
+            // Pause the game for 3 seconds
+            Invoke("RestartScene", 3f);
         }
     }
 

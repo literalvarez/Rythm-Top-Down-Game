@@ -19,7 +19,7 @@ public class SpriteFader : MonoBehaviour
         while (elapsedTime < duration)
         {
             // Calculate the alpha value based on the elapsed time and duration
-            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / duration);
+            float alpha = Mathf.Lerp(1f, 0.5f, elapsedTime / duration);
 
             // Set the new alpha value to the sprite renderer's color
             spriteColor.a = alpha;
@@ -31,7 +31,7 @@ public class SpriteFader : MonoBehaviour
         }
 
         // Ensure the alpha is exactly 0 at the end of the coroutine
-        spriteColor.a = 0f;
+        spriteColor.a = 0.5f;
         spriteRenderer.color = spriteColor;
     }
 }
