@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3508486590937136947}
   - component: {fileID: 6461512062578060540}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8584906, g: 0.72093767, b: 0.23891956, a: 1}
+  m_Color: {r: 0.9960785, g: 0, b: 0.627451, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,7 +103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 13
-  damage: 1
 --- !u!50 &3508486590937136947
 Rigidbody2D:
   serializedVersion: 4
@@ -299,8 +298,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.778481, b: 0, a: 1}
-      key1: {r: 0.5, g: 0.41484058, b: 0.115566045, a: 0}
+      key0: {r: 0.9960785, g: 0, b: 0.627451, a: 1}
+      key1: {r: 0.9960785, g: 0, b: 0.627451, a: 0}
       key2: {r: 0.8588236, g: 0.72156864, b: 0.2392157, a: 0}
       key3: {r: 1, g: 1, b: 1, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -481,19 +480,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6221548259085448061, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
       propertyPath: Color.b
-      value: 0
+      value: 0.627451
       objectReference: {fileID: 0}
     - target: {fileID: 6221548259085448061, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
       propertyPath: Color.g
-      value: 0.7817019
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6221548259085448061, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
       propertyPath: Color.r
-      value: 1
+      value: 0.9960785
       objectReference: {fileID: 0}
     - target: {fileID: 6221548259085448061, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
       propertyPath: Intensity
-      value: 0.68
+      value: 1.01
       objectReference: {fileID: 0}
     - target: {fileID: 6221548259085448061, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
       propertyPath: position.x

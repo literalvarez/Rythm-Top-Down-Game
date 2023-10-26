@@ -22,6 +22,10 @@ public class EnemyFollow : MonoBehaviour
             // Calculate the direction to the player
             Vector2 chaseDirection = (targetPosition - (Vector2)transform.position).normalized;
 
+            // Rotate the enemy to look at the player
+            float angle = Mathf.Atan2(chaseDirection.y, chaseDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+
             // Cast a ray in the direction of movement to check for obstacles
             RaycastHit2D hit = Physics2D.Raycast(transform.position, chaseDirection, 0.5f);
             if (hit.collider != null && hit.collider.CompareTag("Wall"))
@@ -49,15 +53,7 @@ public class EnemyFollow : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // Destroy the player
-            Destroy(collision.gameObject);
-
-            // Pause the game for 3 seconds
-            Invoke("RestartScene", 3f);
+            Destroy(collision.gameObject);  
         }
-    }
-
-    void RestartScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

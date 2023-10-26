@@ -1,10 +1,11 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bullet : MonoBehaviour
 {
     public float bulletSpeed = 10f;
-    public int damage = 1;
+    public bool enemyBullet;
 
     // Update is called once per frame
     void Update()
@@ -22,7 +23,7 @@ public class Bullet : MonoBehaviour
 
 
    void OnTriggerEnter2D(Collider2D other)
-    {
+   {
         // Check if the bullet hits an enemy (or any other object you want to damage)
         if (other.CompareTag("Enemy"))
         {
@@ -30,8 +31,17 @@ public class Bullet : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("RangedEnemy") && !enemyBullet)
         {
+            // Deal damage to the enemy
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+        if (other.CompareTag("Player") && enemyBullet)
+        {
+            // Destroy the player
+            Destroy(other.gameObject);
+            Destroy(gameObject);
 
         }
         else
@@ -39,5 +49,6 @@ public class Bullet : MonoBehaviour
             // Destroy the bullet if it hits something else (e.g., wall)
             Destroy(gameObject);
         }
-    }
+
+   }
 }
