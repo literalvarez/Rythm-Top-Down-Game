@@ -6,7 +6,7 @@ public class EventSplitter : MonoBehaviour
     public UnityEvent unityEvent1;
     public UnityEvent unityEvent2;
 
-    private bool isEvent1 = true;
+    public bool isEvent1 = true;
 
     public void EventSplitterMethod()
     {

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 
@@ -21,22 +22,21 @@ public class PlayerDash : MonoBehaviour
     public void EnableDash()
     {
         canDash = true;
-        Invoke("DisableDash", 0.15f); // Turn off shooting after 100ms (0.1 seconds)
+        StartCoroutine(DisableDashingCoroutine());
     }
 
-    public void DisableDash()
+    private IEnumerator DisableDashingCoroutine()
     {
-        canDash = true;
+        yield return new WaitForSeconds(0.22f); // Wait for 0.2 seconds
+
+        canDash = false;
     }
 
     private void Dash(Vector2 dashDirection)
     {
         Vector2 dashEndPos = (Vector2)transform.position + dashDirection * dashDistance;
-        transform.DOMove(dashEndPos, dashDuration).SetEase(typeOfEase).OnComplete(OnDashComplete);
-    }
-
-    private void OnDashComplete()
-    {
+        transform.DOMove(dashEndPos, dashDuration).SetEase(typeOfEase);
         canDash = false;
+        StopCoroutine(DisableDashingCoroutine());
     }
 }
