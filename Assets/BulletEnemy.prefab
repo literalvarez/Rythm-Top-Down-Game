@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6461512062578060540}
   m_Layer: 0
   m_Name: BulletEnemy
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.525}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.4}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7259948088555330064}
   - {fileID: 8718897964146116367}
@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 7
   enemyBullet: 1
+  maxTravelDistance: 15
 --- !u!50 &3508486590937136947
 Rigidbody2D:
   serializedVersion: 4
@@ -260,7 +261,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.28624123
+        value: 0.39996672
         inSlope: -0.07669723
         outSlope: -0.07669723
         tangentMode: 0

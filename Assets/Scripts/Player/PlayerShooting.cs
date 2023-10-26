@@ -7,6 +7,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public bool canShoot = false; // Private variable to control shooting
+    public ParticleSystem shootfx;
 
 
     void Update()
@@ -19,11 +20,14 @@ public class PlayerShooting : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
 
         // Shooting logic
-        if (canShoot && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canShoot)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            canShoot = false;
+            shootfx.Play();
+
+
             StopCoroutine(DisableShootingCoroutine());
+            canShoot = false;
         }
     }
 
@@ -35,7 +39,7 @@ public class PlayerShooting : MonoBehaviour
 
     private IEnumerator DisableShootingCoroutine()
     {
-        yield return new WaitForSeconds(0.15f); // Wait for 0.2 seconds
+        yield return new WaitForSeconds(0.22f); // Wait for 0.2 seconds
             
         canShoot = false;
     }

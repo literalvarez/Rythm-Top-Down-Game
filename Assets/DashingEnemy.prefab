@@ -221,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashDistance: 2.5
   dashDuration: 0.1
-  typeOfEase: 3
+  typeOfEase: 1
 --- !u!96 &3798230207264758392
 TrailRenderer:
   serializedVersion: 3

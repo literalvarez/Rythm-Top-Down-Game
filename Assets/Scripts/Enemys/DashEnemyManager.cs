@@ -6,7 +6,7 @@ public class DashEnemyManager : MonoBehaviour
     private static DashEnemyManager _instance;
     public static DashEnemyManager Instance { get { return _instance; } }
 
-    private List<DashEnemy> enemyList = new List<DashEnemy>();
+    [SerializeField] private List<DashEnemy> enemyList = new List<DashEnemy>();
 
     private void Awake()
     {
@@ -35,6 +35,7 @@ public class DashEnemyManager : MonoBehaviour
     {
         foreach (DashEnemy enemy in enemyList)
         {
+            Debug.Log("Shootas Shootin");
             enemy.EnemyDash();
         }
     }

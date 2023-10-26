@@ -35,22 +35,35 @@ public class Bullet : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
-        if (other.CompareTag("RangedEnemy") && !enemyBullet)
+        else if (other.CompareTag("RangedEnemy") && !enemyBullet)
         {
             // Deal damage to the enemy
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
-        if (other.CompareTag("Player") && enemyBullet)
+        else if (other.CompareTag("Player") && enemyBullet)
         {
             // Destroy the player
             Destroy(other.gameObject);
             Destroy(gameObject);
+        }
+        else if (other.CompareTag("Player") && !enemyBullet)
+        {
+
+        }
+        else if (other.CompareTag("Bullet"))
+        {
+
+        }
+        else if (other.CompareTag("RangedEnemy") && enemyBullet)
+        {
+
         }
         else
         {
             // Destroy the bullet if it hits something else (e.g., wall)
             Destroy(gameObject);
         }
+
     }
 }
