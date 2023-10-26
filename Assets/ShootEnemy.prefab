@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2681800115821839024}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.34, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61,7 +61,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4718658370014956913}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.349999, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -193,7 +193,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &1401931963938289461
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -412,7 +412,7 @@ MonoBehaviour:
     OptimizedRaycasting: 1
     CameraCulling: {fileID: 0}
     ChooseMainCamera: 0
-  position: {x: -12.349999, y: 0}
+  position: {x: -30.66, y: 0}
   TransformIsDirty: 0
   needUpdate: 0
   ContactFilter:

@@ -58,14 +58,6 @@ public class DashEnemy : MonoBehaviour
         {
             // Destroy the player
             Destroy(collision.gameObject);
-
-            // Pause the game for 3 seconds
-            Invoke("RestartScene", 3f);
         }
-    }
-
-    void RestartScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -6,6 +6,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public bool canShoot = false; // Private variable to control shooting
+    public bool shooted = false;
 
     void Update()
     {
@@ -19,25 +20,25 @@ public class PlayerShooting : MonoBehaviour
         // Shooting logic
         if (canShoot && Input.GetMouseButtonDown(0))
         {
-            Shoot();
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            shooted = true;
+            canShoot = false;
         }
     }
 
     public void EnableShooting()
     {
         canShoot = true;
-        Invoke("DisableShooting", 0.2f); // Turn off shooting after 100ms (0.1 seconds)
+        shooted = false;
+        Invoke("DisableShooting", 0.25f); // Turn off shooting after 150ms (0.1 seconds)
     }
 
     private void DisableShooting()
     {
-        canShoot = false;
+        if(shooted == false) 
+        {
+            canShoot = false; 
+        }       
     }
 
-    void Shoot()
-    {
-        // Instantiate bullet and set its direction according to mouse position
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        canShoot = false;
-    }
 }
