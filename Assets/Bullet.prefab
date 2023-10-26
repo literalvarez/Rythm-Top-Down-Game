@@ -103,7 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 13
-  damage: 1
+  enemyBullet: 0
+  maxTravelDistance: 40
 --- !u!50 &3508486590937136947
 Rigidbody2D:
   serializedVersion: 4

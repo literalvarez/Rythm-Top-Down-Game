@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
@@ -6,7 +7,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public bool canShoot = false; // Private variable to control shooting
-    public bool shooted = false;
+
 
     void Update()
     {
@@ -21,24 +22,21 @@ public class PlayerShooting : MonoBehaviour
         if (canShoot && Input.GetMouseButtonDown(0))
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            shooted = true;
             canShoot = false;
+            StopCoroutine(DisableShootingCoroutine());
         }
     }
 
     public void EnableShooting()
     {
         canShoot = true;
-        shooted = false;
-        Invoke("DisableShooting", 0.25f); // Turn off shooting after 150ms (0.1 seconds)
+        StartCoroutine(DisableShootingCoroutine());
     }
 
-    private void DisableShooting()
+    private IEnumerator DisableShootingCoroutine()
     {
-        if(shooted == false) 
-        {
-            canShoot = false; 
-        }       
+        yield return new WaitForSeconds(0.15f); // Wait for 0.2 seconds
+            
+        canShoot = false;
     }
-
 }
