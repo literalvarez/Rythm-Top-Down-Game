@@ -73,10 +73,6 @@ public class TimerController : MonoBehaviour
                 Debug.Log("Time's up!");
             }
 
-            if (currentTimeInSeconds <= totalTimeInSeconds - 55f)
-            {
-                MinuteTransition.Invoke();
-            }
 
             if (currentTimeInSeconds <= totalTimeInSeconds - 55f && !minuteTransition55EventInvoked)
             {

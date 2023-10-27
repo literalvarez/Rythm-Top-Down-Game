@@ -29,7 +29,7 @@ public class SongChangerTimer : MonoBehaviour
 
         float timeLeft = countdownDuration;
 
-        while (timeLeft > 0)
+        while (timeLeft > 0.1f)
         {
             countdownText.text = "NEXT SONG\n" + Mathf.Ceil(timeLeft).ToString();
             timeLeft -= Time.deltaTime;
