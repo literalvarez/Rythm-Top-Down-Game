@@ -1,9 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PauseGame : MonoBehaviour
 {
     [SerializeField]
     private AudioSource[] audioSources; // Array of AudioSources to pause and resume
+
+    [SerializeField]
+    private UnityEvent doWhenPause; // UnityEvent to trigger when game is paused
+
+    [SerializeField]
+    private UnityEvent doWhenUnpause; // UnityEvent to trigger when game is unpaused
 
     private bool isPaused = false;
 
@@ -28,6 +35,9 @@ public class PauseGame : MonoBehaviour
                         audioSource.Pause();
                     }
                 }
+
+                // Trigger UnityEvent for pause
+                doWhenPause.Invoke();
             }
             else
             {
@@ -41,6 +51,9 @@ public class PauseGame : MonoBehaviour
                         audioSource.UnPause();
                     }
                 }
+
+                // Trigger UnityEvent for unpause
+                doWhenUnpause.Invoke();
             }
         }
     }
