@@ -4,7 +4,8 @@ using System.Collections;
 public class SpriteFader : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
-    public float duration = 10f; // Duration in seconds for the fade effect
+    public float duration = 10f; // Duration in seconds for the fade effects
+    [SerializeField] private float fadeAmount = 0.5f;
 
     void Start()
     {
@@ -19,7 +20,7 @@ public class SpriteFader : MonoBehaviour
         while (elapsedTime < duration)
         {
             // Calculate the alpha value based on the elapsed time and duration
-            float alpha = Mathf.Lerp(1f, 0.5f, elapsedTime / duration);
+            float alpha = Mathf.Lerp(1f, fadeAmount, elapsedTime / duration);
 
             // Set the new alpha value to the sprite renderer's color
             spriteColor.a = alpha;
@@ -31,7 +32,7 @@ public class SpriteFader : MonoBehaviour
         }
 
         // Ensure the alpha is exactly 0 at the end of the coroutine
-        spriteColor.a = 0.5f;
+        spriteColor.a = fadeAmount;
         spriteRenderer.color = spriteColor;
     }
 }
