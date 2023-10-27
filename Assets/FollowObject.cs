@@ -21,7 +21,7 @@ public class FollowObject : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Target object is not assigned!");
+           // Debug.LogError("Target object is not assigned!");
         }
     }
 }

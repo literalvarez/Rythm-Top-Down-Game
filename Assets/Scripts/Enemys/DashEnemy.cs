@@ -50,14 +50,13 @@ public class DashEnemy : MonoBehaviour
             enemyManager.UnregisterEnemy(this); // Unregister this enemy from the manager
         }
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the enemy collides with the player
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             // Destroy the player
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
         }
     }
 }
