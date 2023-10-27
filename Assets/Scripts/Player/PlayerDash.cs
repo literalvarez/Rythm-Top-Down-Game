@@ -8,6 +8,7 @@ public class PlayerDash : MonoBehaviour
     public float dashDuration = 0.5f; // Serialized field for dash duration
     private bool canDash = false; // Private variable to control dashing
     [SerializeField] private Ease typeOfEase;
+    public AudioSource DashSFX;
 
     void Update()
     {
@@ -34,6 +35,7 @@ public class PlayerDash : MonoBehaviour
 
     private void Dash(Vector2 dashDirection)
     {
+        DashSFX.Play();
         Vector2 dashEndPos = (Vector2)transform.position + dashDirection * dashDistance;
         transform.DOMove(dashEndPos, dashDuration).SetEase(typeOfEase);
         canDash = false;

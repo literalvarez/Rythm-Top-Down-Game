@@ -11,6 +11,7 @@ public class PlayerShooting : MonoBehaviour
     public int CurrentAmmo = 4;
     public int MaxAmmo = 4;
     public ParticleSystem shootfx;
+    public AudioSource shootSFX;
     public GameObject[] bulletVisuals; // Array of GameObjects representing bullets
 
 
@@ -35,6 +36,7 @@ public class PlayerShooting : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             shootfx.Play();
+            shootSFX.Play();
 
 
             StopCoroutine(DisableShootingCoroutine());

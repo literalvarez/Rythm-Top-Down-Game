@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class TimerController : MonoBehaviour
 {
     public float totalTimeInSeconds = 300f; // Total time in seconds (5 minutes)
-    private float currentTimeInSeconds;
+    [SerializeField] private float currentTimeInSeconds;
     public TMP_Text timerText;
     public UnityEvent MinuteTransition;
     public UnityEvent on1MinutePassed;

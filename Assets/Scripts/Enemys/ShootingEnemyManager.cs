@@ -8,6 +8,8 @@ public class ShootingEnemyManager : MonoBehaviour
 
     private List<ShootingEnemy> enemyList = new List<ShootingEnemy>();
 
+    private bool CanShootDelay = false;
+
     private void Awake()
     {
         if (_instance == null)
@@ -33,9 +35,14 @@ public class ShootingEnemyManager : MonoBehaviour
     // Method to make all ShootingEnemy instances shoot
     public void MakeEnemiesShoot()
     {
-        foreach (ShootingEnemy enemy in enemyList)
-        {
-            enemy.EnemyShoot();
+        if (CanShootDelay == true) 
+        { 
+            foreach (ShootingEnemy enemy in enemyList)
+            {
+                enemy.EnemyShoot();
+            }
+            CanShootDelay = false;
         }
-    }
+        CanShootDelay = true;
+}
 }
