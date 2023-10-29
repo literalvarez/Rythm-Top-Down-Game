@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/NewTry Run n gun.unity
     guid: 7df9a2ed9e065fe43a07411d0531d74c
   - enabled: 1
-    path: Assets/NewTry Run n gun v2.unity
+    path: Assets/BossUpdate.unity
     guid: 11de41e21bda792419ce96cf0a2a1964
   m_configObjects: {}

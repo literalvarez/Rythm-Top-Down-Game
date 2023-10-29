@@ -4,15 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class DashEnemy : MonoBehaviour
 {
-    public float dashDistance = 5f; // Serialized field for dash distance
-    public float dashDuration = 0.5f; // Serialized field for dash duration
+    public bool DashMore = true;
+    public float dashDistance = 5f;
+    public float dashDuration = 0.5f;
     [SerializeField] private Ease typeOfEase;
-    private Transform playerTransform; // Reference to the player's transform
-    private DashEnemyManager enemyManager; // Reference to the DashEnemyManager
+    private Transform playerTransform;
+    private DashEnemyManager enemyManager;
+    private bool shouldDash = true; // Variable to toggle between dashing and not dashing
 
     void Start()
     {
-        // Assuming the player is tagged as "Player". Adjust the tag accordingly.
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
@@ -23,10 +24,10 @@ public class DashEnemy : MonoBehaviour
             Debug.LogError("Player not found in the scene. Make sure the player object is tagged as 'Player'.");
         }
 
-        enemyManager = FindObjectOfType<DashEnemyManager>(); // Find the DashEnemyManager in the scene
+        enemyManager = FindObjectOfType<DashEnemyManager>();
         if (enemyManager != null)
         {
-            enemyManager.RegisterEnemy(this); // Register this enemy with the manager
+            enemyManager.RegisterEnemy(this);
         }
         else
         {
@@ -36,26 +37,32 @@ public class DashEnemy : MonoBehaviour
 
     public void EnemyDash()
     {
-        Vector2 dashDirection = (playerTransform.position - transform.position).normalized;  
-
-        Vector2 dashEndPos = (Vector2)transform.position + dashDirection * dashDistance;
-        transform.DOMove(dashEndPos, dashDuration).SetEase(typeOfEase);
-
+         
+        if (DashMore || shouldDash )
+        {
+            Vector2 dashDirection = (playerTransform.position - transform.position).normalized;
+            Vector2 dashEndPos = (Vector2)transform.position + dashDirection * dashDistance;
+            transform.DOMove(dashEndPos, dashDuration).SetEase(typeOfEase);
+            shouldDash = false; // Toggle shouldDash to false to prevent dashing next time
+        }
+        else
+        {
+            shouldDash = true; // If shouldDash is false, allow dashing next time
+        }
     }
 
     private void OnDestroy()
     {
         if (enemyManager != null)
         {
-            enemyManager.UnregisterEnemy(this); // Unregister this enemy from the manager
+            enemyManager.UnregisterEnemy(this);
         }
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the enemy collides with the player
         if (other.gameObject.CompareTag("Player"))
         {
-            // Destroy the player
             Destroy(other.gameObject);
         }
     }

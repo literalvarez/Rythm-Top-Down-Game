@@ -59,6 +59,21 @@ public class Bullet : MonoBehaviour
         {
 
         }
+        else if (other.CompareTag("Boss") && !enemyBullet)
+        {
+            // Get the SpawnCopys component attached to the boss object
+            SpawnCopys spawnCopys = other.GetComponent<SpawnCopys>();
+
+            // Check if the SpawnCopys component is not null
+            if (spawnCopys != null)
+            {
+                // Call the SpawnCopyAndDestroy method from the SpawnCopys component
+                spawnCopys.SpawnCopyAndDestroy();
+            }
+
+            // Destroy the bullet after it collides with the boss
+            Destroy(gameObject);
+        }
         else
         {
             // Destroy the bullet if it hits something else (e.g., wall)

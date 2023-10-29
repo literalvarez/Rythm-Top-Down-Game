@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - RangedEnemy
   - Bullet
+  - Boss
   layers:
   - Default
   - TransparentFX
