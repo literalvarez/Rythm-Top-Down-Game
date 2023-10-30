@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomPositionSetter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public Transform[] targetPositions;
+
+    void OnEnable()
+    {       
+            MoveToRandomPosition();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void MoveToRandomPosition()
     {
-        
+        if (targetPositions.Length > 0)
+        {
+            int randomIndex = Random.Range(0, targetPositions.Length);
+            Transform randomTarget = targetPositions[randomIndex];
+            transform.position = randomTarget.position;
+        }
+        else
+        {
+            Debug.LogError("No target positions assigned!");
+        }
     }
 }

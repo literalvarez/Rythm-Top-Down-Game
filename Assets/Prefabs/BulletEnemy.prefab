@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aabd62e63cc730941b7723de063b972d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 6
+  bulletSpeed: 5.8
   enemyBullet: 1
   maxTravelDistance: 15
 --- !u!50 &3508486590937136947
