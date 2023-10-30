@@ -53,15 +53,15 @@ MonoBehaviour:
   active: 0
   shadows:
     m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 0.11690885, y: 1, z: 0.4360282, w: 0}
   midtones:
     m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 1, y: 0, z: 0.34698582, w: 0}
   highlights:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.08513887, z: 0, w: 0}
   shadowsStart:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   shadowsEnd:
     m_OverrideState: 0
@@ -87,13 +87,13 @@ MonoBehaviour:
   active: 1
   type:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 5
   intensity:
     m_OverrideState: 1
-    m_Value: 0.351
+    m_Value: 0.25
   response:
     m_OverrideState: 1
-    m_Value: 0.213
+    m_Value: 1
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -138,13 +138,13 @@ MonoBehaviour:
   m_Name: Global Volume Profile
   m_EditorClassIdentifier: 
   components:
+  - {fileID: 4444293368709825374}
   - {fileID: 1785901878754755423}
   - {fileID: -2764981484933413998}
   - {fileID: -4674774600910898780}
   - {fileID: 9105889767309583061}
   - {fileID: -3622946266346853920}
   - {fileID: 1148781058197806845}
-  - {fileID: 4444293368709825374}
   - {fileID: -3162677288594480952}
   - {fileID: 7116319367347266502}
   - {fileID: 4186073587835999201}
@@ -161,16 +161,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
   center:
     m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.176
   smoothness:
     m_OverrideState: 1
     m_Value: 1
@@ -198,16 +198,16 @@ MonoBehaviour:
     m_Value: 0.68
   intensity:
     m_OverrideState: 1
-    m_Value: 1.98
+    m_Value: 2.98
   scatter:
     m_OverrideState: 0
-    m_Value: 0.589
+    m_Value: 0.269
   clamp:
     m_OverrideState: 0
-    m_Value: 65472
+    m_Value: 65453
   tint:
     m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0.11505318, g: 0, b: 1, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
@@ -279,7 +279,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.153
+    m_Value: 0.297
 --- !u!114 &7116319367347266502
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -314,19 +314,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   mode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   gaussianStart:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 10
   gaussianEnd:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 30
   gaussianMaxRadius:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   highQualitySampling:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   focusDistance:
     m_OverrideState: 0

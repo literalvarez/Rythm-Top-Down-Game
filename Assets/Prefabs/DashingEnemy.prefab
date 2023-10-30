@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2640512851556310541}
   - component: {fileID: 3336662269772810582}
   - component: {fileID: 3798230207264758392}
+  - component: {fileID: 8952161302405444743}
   m_Layer: 0
   m_Name: DashingEnemy
   m_TagString: Enemy
@@ -148,8 +149,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 5
+  m_AngularDrag: 1.5
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -244,7 +245,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b6200e727ae861e4e81328cd64e60a03, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -354,6 +355,18 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &8952161302405444743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015743029878762513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a086cb712efc4e45844d3624077477b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8391991451475229635
 PrefabInstance:
   m_ObjectHideFlags: 0

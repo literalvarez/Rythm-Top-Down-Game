@@ -148,9 +148,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 5
+  m_LinearDrag: 5
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -221,8 +221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DashMore: 0
-  dashDistance: 6
-  dashDuration: 0.25
+  dashDistance: 6.5
+  dashDuration: 0.2
   typeOfEase: 2
 --- !u!114 &4952176219423704704
 MonoBehaviour:
@@ -271,7 +271,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b6200e727ae861e4e81328cd64e60a03, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -292,7 +292,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.1
+  m_Time: 0.2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -324,7 +324,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0.85098046, g: 0.34509805, b: 0, a: 1}
-      key1: {r: 0.85098046, g: 0.34509805, b: 0, a: 0.25490198}
+      key1: {r: 0.85098046, g: 0.34509805, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -340,9 +340,9 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 38165
-      atime2: 65535
-      atime3: 0
+      atime1: 15420
+      atime2: 55898
+      atime3: 65535
       atime4: 0
       atime5: 0
       atime6: 0
@@ -350,11 +350,11 @@ TrailRenderer:
       m_Mode: 0
       m_ColorSpace: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
+      m_NumAlphaKeys: 4
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
