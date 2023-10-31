@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6253213118482699269}
   - component: {fileID: 3508486590937136947}
   - component: {fileID: 6461512062578060540}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8718897964146116367}
   - component: {fileID: 2603628762911443120}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7259948088555330064}
   - component: {fileID: 1141996791975090653}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,6 +417,10 @@ PrefabInstance:
     - target: {fileID: 4131787446107899961, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
       propertyPath: m_Name
       value: Light2D Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131787446107899961, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4131787446107899962, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
       propertyPath: m_LocalPosition.x
