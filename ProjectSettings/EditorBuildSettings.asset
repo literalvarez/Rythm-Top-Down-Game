@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 0
-    path: Assets/NewTry.unity
+    path: Assets/old scenes/NewTry.unity
     guid: 90b129a573f545140ad3155d77a0800d
   - enabled: 0
-    path: Assets/NewTry Run n gun.unity
+    path: Assets/old scenes/NewTry Run n gun.unity
     guid: 7df9a2ed9e065fe43a07411d0531d74c
   - enabled: 1
     path: Assets/BossUpdate.unity
