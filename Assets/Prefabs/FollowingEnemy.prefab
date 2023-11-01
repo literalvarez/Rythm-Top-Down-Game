@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2251588076123954349}
   - component: {fileID: 2640512851556310541}
   - component: {fileID: 3992799311537563533}
+  - component: {fileID: 2654572048092529875}
   m_Layer: 0
   m_Name: FollowingEnemy
   m_TagString: Enemy
@@ -219,6 +220,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 3
+--- !u!114 &2654572048092529875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015743029878762513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff4e93ad81ce4d4098d09a741d2c720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToAdd: 1
 --- !u!1001 &8391991451475229635
 PrefabInstance:
   m_ObjectHideFlags: 0

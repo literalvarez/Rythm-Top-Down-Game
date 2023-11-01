@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4952176219423704704}
   - component: {fileID: -2825340236474856724}
   - component: {fileID: 3148879215603417369}
+  - component: {fileID: -186148330593016529}
   m_Layer: 0
   m_Name: BossySon1
   m_TagString: Boss
@@ -221,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DashMore: 0
-  dashDistance: 6.5
+  dashDistance: 7
   dashDuration: 0.2
   typeOfEase: 2
 --- !u!114 &4952176219423704704
@@ -363,3 +364,16 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &-186148330593016529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015743029878762513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff4e93ad81ce4d4098d09a741d2c720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToAdd: 5

@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/old scenes/NewTry Run n gun.unity
     guid: 7df9a2ed9e065fe43a07411d0531d74c
-  - enabled: 1
+  - enabled: 0
     path: Assets/BossUpdate.unity
     guid: 11de41e21bda792419ce96cf0a2a1964
+  - enabled: 1
+    path: Assets/Map Update.unity
+    guid: a578a831b35330e46a8a87d8ac5c81a1
   m_configObjects: {}

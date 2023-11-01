@@ -1,6 +1,7 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class PlayerShooting : MonoBehaviour
     public ParticleSystem shootfx;
     public AudioSource shootSFX;
     public GameObject[] bulletVisuals; // Array of GameObjects representing bullets
+
+    public int BulletsPerShot = 5; // You can change this number according to your preference
+    public float BulletSpreadAngle = 30f; // The range of angles in degrees
 
 
     void Start()
@@ -34,16 +38,32 @@ public class PlayerShooting : MonoBehaviour
         // Shooting logic
         if (Input.GetMouseButtonDown(0) && canShoot && CurrentAmmo >= 1)
         {
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            float startingAngle = -BulletSpreadAngle / 2f;
+
+            if (BulletsPerShot == 1)
+            {
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            }
+            else if (BulletsPerShot > 1)
+            {
+                for (int i = 0; i < BulletsPerShot; i++)
+                {
+                    float bulletAngle = startingAngle + i * (BulletSpreadAngle / (BulletsPerShot - 1));
+                    Vector3 bulletEulerAngles = new Vector3(0f, 0f, bulletAngle + angle); // Add player's rotation angle to the bullet's angle
+
+                    GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(bulletEulerAngles));
+                }
+            }
             shootfx.Play();
             shootSFX.Play();
-
-
+            
             StopCoroutine(DisableShootingCoroutine());
             CurrentAmmo = CurrentAmmo - 1;
             UpdateBulletVisuals();
             canShoot = false;
+            
         }
+
 
         if (Input.GetMouseButtonDown(1) && canReload) // RELOAD RELOAD RELOAD // RELOAD RELOAD RELOAD // RELOAD RELOAD RELOAD
         {
@@ -85,5 +105,16 @@ public class PlayerShooting : MonoBehaviour
         yield return new WaitForSeconds(0.25f); // Wait for 0.25 seconds
 
         canReload = false;
+    }
+    // Method to set the number of bullets per shot
+    public void SetBulletsPerShot(int numberOfBullets)
+    {
+        BulletsPerShot = numberOfBullets;
+    }
+
+    // Method to set the bullet spread angle
+    public void SetBulletSpreadAngle(float spreadAngle)
+    {
+        BulletSpreadAngle = spreadAngle;
     }
 }

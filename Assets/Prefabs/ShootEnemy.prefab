@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 1401931963938289461}
   - component: {fileID: 3878010349401307707}
   - component: {fileID: 3638968543691729170}
+  - component: {fileID: -2471375100721274308}
   m_Layer: 0
   m_Name: ShootEnemy
   m_TagString: RangedEnemy
@@ -251,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b441a0f4c0e50b4478e1c7bafe295e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 2.9
+  chaseSpeed: 3
 --- !u!114 &3638968543691729170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +267,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 4200782348252384107}
   bulletPrefab: {fileID: 2182683811773141637, guid: 340272522ff1ca04a88279e322790b15, type: 3}
+--- !u!114 &-2471375100721274308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4718658370014956913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff4e93ad81ce4d4098d09a741d2c720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToAdd: 5
 --- !u!1 &6836213347877010722
 GameObject:
   m_ObjectHideFlags: 0

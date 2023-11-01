@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3336662269772810582}
   - component: {fileID: 3798230207264758392}
   - component: {fileID: 8952161302405444743}
+  - component: {fileID: -1051417394632474173}
   m_Layer: 0
   m_Name: DashingEnemy
   m_TagString: Enemy
@@ -221,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DashMore: 1
-  dashDistance: 2.5
+  dashDistance: 3
   dashDuration: 0.1
   typeOfEase: 1
 --- !u!96 &3798230207264758392
@@ -367,6 +368,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a086cb712efc4e45844d3624077477b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1051417394632474173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015743029878762513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff4e93ad81ce4d4098d09a741d2c720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToAdd: 3
 --- !u!1001 &8391991451475229635
 PrefabInstance:
   m_ObjectHideFlags: 0

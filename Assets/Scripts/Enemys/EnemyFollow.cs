@@ -47,13 +47,17 @@ public class EnemyFollow : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the enemy collides with the player
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("Shield"))
         {
             // Destroy the player
-            Destroy(collision.gameObject);  
+            Destroy(other.gameObject);
+            Destroy(gameObject);
         }
     }
 }

@@ -65,5 +65,11 @@ public class DashEnemy : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+        else if (other.CompareTag("Shield"))
+        {
+            // Destroy the player
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

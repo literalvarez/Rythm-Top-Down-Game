@@ -12,7 +12,7 @@ public class OnPlayerDestroy : MonoBehaviour
     {
         DeathSFX.Play();
         onPlayerDestroy.Invoke();
-        StartCoroutine(RestartSceneCoroutine());
+        //StartCoroutine(RestartSceneCoroutine());
     }
 
     IEnumerator RestartSceneCoroutine()

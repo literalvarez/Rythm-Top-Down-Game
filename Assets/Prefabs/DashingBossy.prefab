@@ -17,13 +17,14 @@ GameObject:
   - component: {fileID: 4952176219423704704}
   - component: {fileID: -2825340236474856724}
   - component: {fileID: -2061691693340429994}
+  - component: {fileID: -5649004691795427836}
   m_Layer: 0
   m_Name: DashingBossy
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3075784603301086288
 Transform:
   m_ObjectHideFlags: 0
@@ -221,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DashMore: 0
-  dashDistance: 6.5
+  dashDistance: 7
   dashDuration: 0.2
   typeOfEase: 2
 --- !u!114 &4952176219423704704
@@ -363,3 +364,16 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &-5649004691795427836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015743029878762513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff4e93ad81ce4d4098d09a741d2c720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToAdd: 5
