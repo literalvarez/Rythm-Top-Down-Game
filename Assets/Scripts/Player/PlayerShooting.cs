@@ -107,14 +107,14 @@ public class PlayerShooting : MonoBehaviour
         canReload = false;
     }
     // Method to set the number of bullets per shot
-    public void SetBulletsPerShot(int numberOfBullets)
+    public void SetBulletsPerShot()
     {
-        BulletsPerShot = numberOfBullets;
+        BulletsPerShot = BulletsPerShot+2;
     }
 
     // Method to set the bullet spread angle
-    public void SetBulletSpreadAngle(float spreadAngle)
+    public void SetBulletSpreadAngle()
     {
-        BulletSpreadAngle = spreadAngle;
+        BulletSpreadAngle = BulletSpreadAngle+30;
     }
 }

@@ -41,4 +41,9 @@ public class PlayerDash : MonoBehaviour
         canDash = false;
         StopCoroutine(DisableDashingCoroutine());
     }
+
+    public void IncreaseDashRange()
+    {
+        dashDistance *= 1.2f; // Increase dash distance by 20%
+    }
 }
