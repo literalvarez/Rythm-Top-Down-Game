@@ -115,6 +115,6 @@ public class PlayerShooting : MonoBehaviour
     // Method to set the bullet spread angle
     public void SetBulletSpreadAngle()
     {
-        BulletSpreadAngle = BulletSpreadAngle+30;
+        BulletSpreadAngle = BulletSpreadAngle+20;
     }
 }

@@ -5,6 +5,7 @@ using Dan.Main;
 using TMPro;
 using System;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.Events;
 
 public class LeaderBoardManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class LeaderBoardManager : MonoBehaviour
 
     [SerializeField] private List<TextMeshProUGUI> names;
     [SerializeField] private List<TextMeshProUGUI> scores;
+    public UnityEvent DoUpload;
+    public UnityEvent DoFailedUpload;
 
     private string publicLeaderboardKey = "aa2d952612d3150c787a7ce8f1dea56d5a6c0fba44d34596f840aec5334f67ee";
 
@@ -39,10 +42,20 @@ public class LeaderBoardManager : MonoBehaviour
 
     public void SetLeaderboardEntry(string username, int score)
     {
-        LeaderboardCreator.UploadNewEntry(publicLeaderboardKey, username, score, ((msg) =>
+        LeaderboardCreator.UploadNewEntry(publicLeaderboardKey, username, score, isSuccessful  =>
         {
-            //username.Substring(1,8);
-            GetLeaderboard();
-        }));
+            if (isSuccessful)
+            {
+                GetLeaderboard();
+                DoUpload.Invoke();
+
+            }
+            if (isSuccessful)
+            {
+                DoFailedUpload.Invoke();
+            }
+                //username.Substring(1,8);
+
+        });
     }
 }
