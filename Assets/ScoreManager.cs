@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -16,9 +17,35 @@ public class ScoreManager : MonoBehaviour
     public int xpRequired = 10;
     private int currentLevelXP = 0; // XP points gained within the current level
 
+    private float xpSliderLerpSpeed = 5f;
+
+
+    [SerializeField]
+    private Ease easeType = Ease.OutQuad;
+
+    [SerializeField]
+    private float growTime = 0.5f;
+
+    [SerializeField]
+    private float shrinkTime = 0.5f;
+
+    [SerializeField]
+    private Vector2 growScale = new Vector2(1.2f, 1.2f);
+
+    [SerializeField]
+    private Vector2 originalScale = new Vector2(1f, 1f);
+
     void Start()
     {
         UpdateUI();
+    }
+
+    private void Update()
+    {
+        if (xpSlider != null)
+        {
+            UpdateXpBar();
+        }
     }
 
     // Method to add score
@@ -51,7 +78,17 @@ public class ScoreManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + score;
+            scoreText.text = "" + score;
+
+            // Use DoTween to animate the scale of the text
+            scoreText.transform.DOScale(growScale, growTime) // Grow to specified scale over specified time
+                .SetEase(easeType)
+                .OnComplete(() =>
+                {
+                    // Shrink back to original size after the growth animation completes
+                    scoreText.transform.DOScale(originalScale, shrinkTime) // Shrink to original scale over specified time
+                        .SetEase(easeType);
+                });
         }
 
         if (levelText != null)
@@ -64,10 +101,11 @@ public class ScoreManager : MonoBehaviour
             xpInfoText.text = "XP: " + currentLevelXP + " / " + xpRequired + " XP to Level Up";
         }
 
-        if (xpSlider != null)
-        {
-            xpSlider.maxValue = xpRequired;
-            xpSlider.value = currentLevelXP;
-        }
+    }
+
+    void UpdateXpBar() 
+    {
+        xpSlider.value = Mathf.Lerp(xpSlider.value, currentLevelXP, Time.deltaTime * xpSliderLerpSpeed);
+        xpSlider.maxValue = xpRequired;
     }
 }
