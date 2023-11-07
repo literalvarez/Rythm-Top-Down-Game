@@ -434,8 +434,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6221548259085448061, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
+      propertyPath: Range
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221548259085448061, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
       propertyPath: Color.b
       value: 0.7725491
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221548259085448061, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
+      propertyPath: Color.g
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6221548259085448061, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
       propertyPath: Color.r
@@ -447,11 +455,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6221548259085448061, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
       propertyPath: position.x
-      value: 21.325857
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6221548259085448061, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
       propertyPath: position.y
-      value: -11.8441105
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6221548259085448061, guid: aa497b390f1fef445935522bdb7cf778, type: 3}
       propertyPath: TransformIsDirty

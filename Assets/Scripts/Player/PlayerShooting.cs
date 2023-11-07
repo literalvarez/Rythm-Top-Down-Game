@@ -18,6 +18,9 @@ public class PlayerShooting : MonoBehaviour
     public int BulletsPerShot = 5; // You can change this number according to your preference
     public float BulletSpreadAngle = 30f; // The range of angles in degrees
 
+    public int maxBulletBounces = 1;
+    public float maxBulletRange = 20f;
+
 
     void Start()
     {
@@ -43,6 +46,13 @@ public class PlayerShooting : MonoBehaviour
             if (BulletsPerShot == 1)
             {
                 GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                Bullet bulletScript = bullet.GetComponent<Bullet>();
+                if (bulletScript != null)
+                {
+                    Debug.Log("Setting Values");
+                    bulletScript.maxTravelDistance = maxBulletRange;
+                    bulletScript.maxBonuces = maxBulletBounces;
+                }
             }
             else if (BulletsPerShot > 1)
             {
@@ -52,6 +62,15 @@ public class PlayerShooting : MonoBehaviour
                     Vector3 bulletEulerAngles = new Vector3(0f, 0f, bulletAngle + angle); // Add player's rotation angle to the bullet's angle
 
                     GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(bulletEulerAngles));
+                    Bullet bulletScript = bullet.GetComponent<Bullet>();
+
+                    if (bulletScript != null)
+                    {
+                        Debug.Log("Setting Values");
+                        bulletScript.maxTravelDistance = maxBulletRange;
+                        bulletScript.maxBonuces = maxBulletBounces;
+                    }
+
                 }
             }
             shootfx.Play();
@@ -115,6 +134,20 @@ public class PlayerShooting : MonoBehaviour
     // Method to set the bullet spread angle
     public void SetBulletSpreadAngle()
     {
-        BulletSpreadAngle = BulletSpreadAngle+20;
+        BulletSpreadAngle = BulletSpreadAngle+10;
+    }
+
+    public void SetBulletsBounces()
+    {
+        maxBulletBounces = maxBulletBounces + 1;
+    }
+    public void SetMaxBulletRange()
+    {
+        maxBulletRange = maxBulletRange + 20;
+    }
+
+    public void ReloadAmmo() 
+    {
+        CurrentAmmo = MaxAmmo;
     }
 }
