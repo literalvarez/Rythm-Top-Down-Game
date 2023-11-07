@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -2825340236474856724}
   - component: {fileID: -7896980163555244001}
   - component: {fileID: 7206070109165135230}
+  - component: {fileID: -8345244746580173924}
   m_Layer: 0
   m_Name: BossySon2
   m_TagString: Boss
@@ -377,3 +378,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreToAdd: 5
+--- !u!114 &-8345244746580173924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015743029878762513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cbb72db761fcf44a3af0676f34d401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 2410645344082164515, guid: b44beb7749d89794a9ccddb94e826d95, type: 3}

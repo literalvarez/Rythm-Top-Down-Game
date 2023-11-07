@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3336662269772810582}
   - component: {fileID: 4952176219423704704}
   - component: {fileID: 3740878760087596786}
+  - component: {fileID: 2045390848620410484}
   m_Layer: 0
   m_Name: BossySon3 1
   m_TagString: Enemy
@@ -348,3 +349,16 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &2045390848620410484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015743029878762513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cbb72db761fcf44a3af0676f34d401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 2410645344082164515, guid: 775e79314cfeed944b1dca51e785066a, type: 3}
