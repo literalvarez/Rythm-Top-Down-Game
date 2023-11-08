@@ -3,32 +3,32 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 
-public class VisualizerBPMManager : MonoBehaviour
+public class UiVisualizerBPMManager : MonoBehaviour
 {
-    public TextMeshProUGUI bpmText; // Reference to the TextMeshProUGUI element displaying the BPM
-    public Button increaseButton; // Reference to the + button
-    public Button decreaseButton; // Reference to the - button
+    //public TextMeshProUGUI bpmText; // Reference to the TextMeshProUGUI element displaying the BPM
+    //public Button increaseButton; // Reference to the + button
+    //public Button decreaseButton; // Reference to the - button
 
     public int currentBpm = 130; // Initial BPM value
     [SerializeField]
-    public List<OscillatingMotionWithBPM> UiOscillatingScripts = new List<OscillatingMotionWithBPM>();
+    public List<UiOscillatingMotionWithBPM> UiOscillatingScripts = new List<UiOscillatingMotionWithBPM>();
 
     private void Start()
     {
-        UpdateBpmText();
+        //UpdateBpmText();
 
         //// Add click listeners to the buttons
         //increaseButton.onClick.AddListener(IncreaseBpm);
         //decreaseButton.onClick.AddListener(DecreaseBpm);
 
         // Find all OscillatingMotionWithBPM instances and add them to the list
-        UiOscillatingScripts.AddRange(FindObjectsOfType<OscillatingMotionWithBPM>());
+        UiOscillatingScripts.AddRange(FindObjectsOfType<UiOscillatingMotionWithBPM>());
     }
 
-    private void UpdateBpmText()
-    {
-        bpmText.text = currentBpm.ToString();
-    }
+    //private void UpdateBpmText()
+    //{
+    //    bpmText.text = currentBpm.ToString();
+    //}
 
     private void UpdateAllOscillatingScriptsBpm()
     {
@@ -41,7 +41,7 @@ public class VisualizerBPMManager : MonoBehaviour
     private void IncreaseBpm()
     {
         currentBpm++;
-        UpdateBpmText();
+        //UpdateBpmText();
         UpdateAllOscillatingScriptsBpm();
     }
 
@@ -50,11 +50,17 @@ public class VisualizerBPMManager : MonoBehaviour
         currentBpm--;
         if (currentBpm < 1)
             currentBpm = 1; // Ensure BPM doesn't go below 1
-        UpdateBpmText();
+       // UpdateBpmText();
         UpdateAllOscillatingScriptsBpm();
     }
     public void SetBpm(int SongBPM)
     {
         currentBpm = SongBPM;
+        foreach (var script in UiOscillatingScripts)
+        {
+            script.bpm = currentBpm;
+            script.RestartInstrument();
+        }
+        
     }
 }

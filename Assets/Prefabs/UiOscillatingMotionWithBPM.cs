@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
 
 public class UiOscillatingMotionWithBPM : MonoBehaviour
 {
@@ -8,15 +9,21 @@ public class UiOscillatingMotionWithBPM : MonoBehaviour
     public float durationMultiplier = 1.5f;
     public Ease easeType = Ease.InOutSine;
     public bool isOffBeat = false;
-    public bool Started = false;
+    //public bool Started = false;
+    public bool LateStart = false;
+    [SerializeField]
+    private GameObject DoTweenKilltarget;
 
     [SerializeField]
     private RectTransform rectTransform;
+
+    private float halfBeatDuration;
 
     private Vector2 initialPosition;
 
     private void Start()
     {
+        
         if (rectTransform == null)
         {
             Debug.LogError("RectTransform not assigned!");
@@ -57,26 +64,42 @@ public class UiOscillatingMotionWithBPM : MonoBehaviour
         }
     }
 
-    public void StartOnce()
-    {
-        if (Started == false)
-        {
-            StartInstrument();
-            Started = true;
-        }
-    }
+    //public void StartOnce()
+    //{
+    //    if (Started == false)
+    //    {
+    //        StartInstrument();
+    //        Started = true;
+    //    }
+    //}
 
     public void StopInstrument()
     {
-        Started = false;
+        //Started = false;
         rectTransform.anchoredPosition = initialPosition;
         DOTween.KillAll();
     }
 
     public void RestartInstrument()
     {
+        halfBeatDuration = (60f / bpm * durationMultiplier) / 2;
         rectTransform.anchoredPosition = initialPosition;
-        DOTween.KillAll();
+        DOTween.Kill(DoTweenKilltarget);
+        if (LateStart)
+        {
+            StartCoroutine(StartThisLate(halfBeatDuration));
+        }
+        else 
+        {
+            StartInstrument();
+        }
+    }
+
+    private IEnumerator StartThisLate(float duration)
+    {
+        float halfDuration = duration;
+        yield return new WaitForSeconds(halfDuration);
+
         StartInstrument();
     }
 }

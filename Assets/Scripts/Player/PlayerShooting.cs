@@ -149,5 +149,6 @@ public class PlayerShooting : MonoBehaviour
     public void ReloadAmmo() 
     {
         CurrentAmmo = MaxAmmo;
+        UpdateBulletVisuals();
     }
 }
