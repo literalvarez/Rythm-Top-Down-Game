@@ -76,8 +76,9 @@ public class UiOscillatingMotionWithBPM : MonoBehaviour
     public void StopInstrument()
     {
         //Started = false;
+        DOTween.Kill(DoTweenKilltarget);
         rectTransform.anchoredPosition = initialPosition;
-        DOTween.KillAll();
+        
     }
 
     public void RestartInstrument()

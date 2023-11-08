@@ -63,4 +63,14 @@ public class UiVisualizerBPMManager : MonoBehaviour
         }
         
     }
+
+    public void StopAll()
+    {
+       
+        foreach (var script in UiOscillatingScripts)
+        {
+            script.StopInstrument();
+        }
+
+    }
 }
