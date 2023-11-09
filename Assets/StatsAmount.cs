@@ -8,6 +8,7 @@ public class StatsAmount : MonoBehaviour
     public TextMeshProUGUI maxBulletBonusesText;
     public TextMeshProUGUI maxBulletRangeText;
     public TextMeshProUGUI maxDashDistanceText;
+    public TextMeshProUGUI maxAmmoText;
 
     public PlayerShooting playerShooting;
     public PlayerDash playerDashScript;
@@ -37,5 +38,6 @@ public class StatsAmount : MonoBehaviour
         maxBulletBonusesText.text = playerShooting.maxBulletBounces.ToString();
         maxBulletRangeText.text = playerShooting.maxBulletRange.ToString(/*"F2"*/) + "m";
         maxDashDistanceText.text = playerDashScript.dashDistance.ToString("F2") + "m";
+        maxAmmoText.text = playerShooting.MaxAmmo.ToString();
     }
 }

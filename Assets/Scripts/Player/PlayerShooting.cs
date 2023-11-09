@@ -126,6 +126,11 @@ public class PlayerShooting : MonoBehaviour
         canReload = false;
     }
     // Method to set the number of bullets per shot
+
+    public void SetMaxAmmo()
+    {
+        MaxAmmo = MaxAmmo + 2;
+    }
     public void SetBulletsPerShot()
     {
         BulletsPerShot = BulletsPerShot+2;
