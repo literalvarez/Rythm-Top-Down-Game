@@ -16,6 +16,8 @@ public class Bullet : MonoBehaviour
 
     private float traveledDistance = 0f;
 
+    public AudioSource hitSFX;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -90,7 +92,9 @@ public class Bullet : MonoBehaviour
         }
         else if (other.CompareTag("Wall") && !enemyBullet)
         {
-            
+            hitSFX.Play();
+
+
             if (currentBonuces == maxBonuces)
             { 
                 Destroy(gameObject);             

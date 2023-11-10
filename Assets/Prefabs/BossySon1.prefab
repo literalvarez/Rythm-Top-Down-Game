@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 3148879215603417369}
   - component: {fileID: -186148330593016529}
   - component: {fileID: 1834548821934921331}
+  - component: {fileID: 378392930495146554}
   m_Layer: 0
   m_Name: BossySon1
   m_TagString: Boss
@@ -391,3 +392,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particlePrefab: {fileID: 2410645344082164515, guid: 9a466fad87645d24b8ce086c63761b03, type: 3}
+--- !u!114 &378392930495146554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015743029878762513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d3de0bd7643c4a80dd3354e1c422a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 2571713281875442148, guid: a761c2027c5738f4184d0eb232c6711a, type: 3}
+  audioDuration: 1
