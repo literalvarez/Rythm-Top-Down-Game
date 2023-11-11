@@ -9,5 +9,4 @@ public class MenuManager : MonoBehaviour
         // Puedes cambiar "PlayScene" al nombre de tu escena de juego
         SceneManager.LoadScene("MainGame");
     }
-
 }
