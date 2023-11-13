@@ -3,7 +3,7 @@ using DG.Tweening;
 
 public class RotateOnCall : MonoBehaviour
 {
-    public Vector3 targetRotation = new Vector3(0f, 0f, 90f); // Target rotation angles
+    public float rotationSpeed = 90f; // Rotation speed in degrees per second
     public Ease easeType = Ease.OutQuad; // Ease type for the rotation animation
     public float rotationDuration = 1f; // Duration for rotating the object
     public GameObject objectToRotate; // Reference to the object you want to rotate
@@ -15,6 +15,9 @@ public class RotateOnCall : MonoBehaviour
 
     private void RotateGameObject()
     {
+        // Calculate the target rotation based on the rotation speed and duration
+        Vector3 targetRotation = objectToRotate.transform.eulerAngles + new Vector3(0f, 0f, rotationSpeed * rotationDuration);
+
         // Rotate the object using DoTween with customizable parameters
         objectToRotate.transform.DORotate(targetRotation, rotationDuration)
             .SetEase(easeType)

@@ -10,6 +10,8 @@ TagManager:
   - Bullet
   - Boss
   - Shield
+  - PlayerBullet
+  - PlayerPower
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,7 @@ public class DoAfterXSeconds : MonoBehaviour
 
     public UnityEvent onTimerComplete; // UnityEvent that will be invoked after X seconds
 
-    private void Start()
+    private void OnEnable()
     {
         // Invoke the DoAfterXSeconds method after the specified delayInSeconds
         Invoke("InvokeEvent", delayInSeconds);
