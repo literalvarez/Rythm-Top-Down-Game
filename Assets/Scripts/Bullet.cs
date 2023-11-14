@@ -113,6 +113,10 @@ public class Bullet : MonoBehaviour
         {
 
         }
+        else if (other.CompareTag("PlayerPower"))
+        {
+
+        }
         else if (other.CompareTag("RangedEnemy") && enemyBullet)
         {
 
