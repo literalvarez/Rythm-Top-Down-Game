@@ -93,7 +93,7 @@ public class ScoreManager : MonoBehaviour
 
         if (levelText != null)
         {
-            levelText.text = "Level: " + currentLevel;
+            levelText.text = ""+currentLevel;
         }
 
         if (xpInfoText != null)
