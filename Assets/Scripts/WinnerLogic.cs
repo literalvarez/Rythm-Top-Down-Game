@@ -18,6 +18,10 @@ public class WinnerLogic : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
     IEnumerator RestartSceneCoroutine()
     {
