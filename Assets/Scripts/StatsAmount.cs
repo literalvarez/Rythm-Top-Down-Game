@@ -15,20 +15,9 @@ public class StatsAmount : MonoBehaviour
 
     private void Start()
     {
-        if (playerShooting == null)
-        {
-            Debug.LogError("PlayerShooting script reference is not set!");
-            return;
-        }
-
         UpdateStatsText();
     }
 
-    private void Update()
-    {
-        // Update the stats text every frame (you might want to optimize this if needed)
-        UpdateStatsText();
-    }
 
     private void UpdateStatsText()
     {

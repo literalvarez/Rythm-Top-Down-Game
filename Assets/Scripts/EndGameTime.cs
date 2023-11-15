@@ -19,7 +19,7 @@ public class EndGameTime : MonoBehaviour
 
             // Display the timer in the desired format (MM:SS) using TextMeshPro
             string timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
-            timerText.text = "Time: " + timerString; // Update the TextMeshPro text
+            timerText.text = "" + timerString; // Update the TextMeshPro text
         }
     }
 
