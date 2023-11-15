@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI xpInfoText;
     public Slider xpSlider;
+    public Image xpCircleSlider;
     public UnityEvent onLevelUp; // UnityEvent to trigger when leveling up
 
     public int score = 0;
@@ -45,6 +46,10 @@ public class ScoreManager : MonoBehaviour
         if (xpSlider != null)
         {
             UpdateXpBar();
+        }
+        if(xpCircleSlider != null)
+        {
+            UpdateXpCircleSlider();
         }
     }
 
@@ -107,5 +112,10 @@ public class ScoreManager : MonoBehaviour
     {
         xpSlider.value = Mathf.Lerp(xpSlider.value, currentLevelXP, Time.deltaTime * xpSliderLerpSpeed);
         xpSlider.maxValue = xpRequired;
+    }
+    void UpdateXpCircleSlider()
+    {
+        xpCircleSlider.fillAmount = (float)currentLevelXP/xpRequired;
+        Debug.Log("Current level xp is " + currentLevelXP);
     }
 }
