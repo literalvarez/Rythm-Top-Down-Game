@@ -19,7 +19,7 @@ public class StatsAmount : MonoBehaviour
     }
 
 
-    private void UpdateStatsText()
+    public void UpdateStatsText()
     {
         // Update TMP text components with current values from PlayerShooting script without variable names
         bulletsPerShotText.text = playerShooting.BulletsPerShot.ToString();

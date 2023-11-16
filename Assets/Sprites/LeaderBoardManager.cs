@@ -19,10 +19,10 @@ public class LeaderBoardManager : MonoBehaviour
 
     private string publicLeaderboardKey = "aa2d952612d3150c787a7ce8f1dea56d5a6c0fba44d34596f840aec5334f67ee";
 
-    private void Start()
-    {
-        GetLeaderboard();
-    }
+    //private void Start()
+    //{
+    //    GetLeaderboard();
+    //}
 
     public void GetLeaderboard()
     {

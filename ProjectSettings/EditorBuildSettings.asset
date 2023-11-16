@@ -18,9 +18,9 @@ EditorBuildSettings:
     path: Assets/old scenes/NewTry Run n gun.unity
     guid: 7df9a2ed9e065fe43a07411d0531d74c
   - enabled: 1
-    path: Assets/UI/Scenes/Home.unity
+    path: Assets/Home.unity
     guid: 8fce411964968f84ba44ec85fb0cb772
   - enabled: 1
     path: Assets/MainGame.unity
-    guid: a578a831b35330e46a8a87d8ac5c81a1
+    guid: 7b183e4d21598064ab2a88e276105a47
   m_configObjects: {}
