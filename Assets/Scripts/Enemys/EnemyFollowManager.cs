@@ -10,7 +10,7 @@ public class EnemyFollowManager : MonoBehaviour
 
     public void StopAll()
     {
-        EnemyFollow[] enemies = FindObjectsOfType<EnemyFollow>();
+        EnemyFollow[] enemies = FindObjectsByType<EnemyFollow>(FindObjectsSortMode.None);
 
         foreach (EnemyFollow enemy in enemies)
         {
@@ -20,7 +20,7 @@ public class EnemyFollowManager : MonoBehaviour
 
     public void ResumeAll()
     {
-        EnemyFollow[] enemies = FindObjectsOfType<EnemyFollow>();
+        EnemyFollow[] enemies = FindObjectsByType<EnemyFollow>(FindObjectsSortMode.None);
 
         foreach (EnemyFollow enemy in enemies)
         {

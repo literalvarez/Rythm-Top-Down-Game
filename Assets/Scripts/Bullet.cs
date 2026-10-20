@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class Bullet : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private bool hasCollided = false;
 
     public float bulletSpeed = 10f;
     public bool enemyBullet;

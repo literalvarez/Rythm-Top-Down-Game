@@ -22,7 +22,7 @@ public class UiVisualizerBPMManager : MonoBehaviour
         //decreaseButton.onClick.AddListener(DecreaseBpm);
 
         // Find all OscillatingMotionWithBPM instances and add them to the list
-        UiOscillatingScripts.AddRange(FindObjectsOfType<UiOscillatingMotionWithBPM>());
+        UiOscillatingScripts.AddRange(FindObjectsByType<UiOscillatingMotionWithBPM>(FindObjectsSortMode.None));
     }
 
     //private void UpdateBpmText()

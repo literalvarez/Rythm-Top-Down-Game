@@ -24,7 +24,7 @@ public class DashEnemy : MonoBehaviour
             Debug.LogError("Player not found in the scene. Make sure the player object is tagged as 'Player'.");
         }
 
-        enemyManager = FindObjectOfType<DashEnemyManager>();
+        enemyManager = FindFirstObjectByType<DashEnemyManager>();
         if (enemyManager != null)
         {
             enemyManager.RegisterEnemy(this);

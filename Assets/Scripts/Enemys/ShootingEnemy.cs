@@ -9,7 +9,7 @@ public class ShootingEnemy : MonoBehaviour
 
     void Start()
     {
-        enemyManager = FindObjectOfType<ShootingEnemyManager>(); // Find the ShootingEnemyManager in the scene
+        enemyManager = FindFirstObjectByType<ShootingEnemyManager>(); // Find the ShootingEnemyManager in the scene
         if (enemyManager != null)
         {
             enemyManager.RegisterEnemy(this); // Register this shooting enemy with the manager

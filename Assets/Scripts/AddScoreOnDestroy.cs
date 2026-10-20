@@ -8,7 +8,7 @@ public class AddScoreOnDestroy : MonoBehaviour
     void Start()
     {
         // Find the ScoreManager script in the scene
-        scoreManager = FindObjectOfType<ScoreManager>();
+        scoreManager = FindFirstObjectByType<ScoreManager>();
 
         if (scoreManager == null)
         {
