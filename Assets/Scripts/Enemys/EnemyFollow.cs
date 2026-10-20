@@ -32,18 +32,18 @@ public class EnemyFollow : MonoBehaviour
             {
                 // If there's a wall in front, find a new direction to move
                 Vector2 newDirection = Vector2.Reflect(chaseDirection, hit.normal).normalized;
-                rb.velocity = newDirection * chaseSpeed;
+                rb.linearVelocity = newDirection * chaseSpeed;
             }
             else
             {
                 // Move the enemy towards the player if there are no obstacles
-                rb.velocity = chaseDirection * chaseSpeed;
+                rb.linearVelocity = chaseDirection * chaseSpeed;
             }
         }
         else
         {
             // Handle the case when the player is not found (optional)
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
         }
     }
 

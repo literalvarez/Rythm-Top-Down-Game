@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         // Set the initial velocity of the bullet
-        rb.velocity = transform.right * bulletSpeed;
+        rb.linearVelocity = transform.right * bulletSpeed;
     }
 
     void Update()
