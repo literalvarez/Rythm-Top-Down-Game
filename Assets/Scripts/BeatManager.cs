@@ -11,9 +11,13 @@ public class BeatManager : MonoBehaviour
 
     private void Update()
     {
+        // Song position minus the player's audio delay, so beats fire when the player hears them
+        float songTime = (float)_audioSource.timeSamples / _audioSource.clip.frequency - AudioOffset.Seconds;
+        if (songTime < 0f) return; // The first beat hasn't reached the player's ears yet
+
         foreach (Intervals interval in _intervals)
         {
-            float sampledTime = (_audioSource.timeSamples / (_audioSource.clip.frequency * interval.GetIntervalLength(_bpm))); 
+            float sampledTime = songTime / interval.GetIntervalLength(_bpm);
             interval.CheckForNewInterval(sampledTime);
         }
     }
