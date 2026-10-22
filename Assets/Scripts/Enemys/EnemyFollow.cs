@@ -4,17 +4,24 @@ using UnityEngine.SceneManagement;
 public class EnemyFollow : MonoBehaviour
 {
     public float chaseSpeed = 5f; // Speed at which the enemy chases the player
+    public float DefaultChaseSpeed { get; private set; } // Speed set on the prefab, used when resuming
     private Rigidbody2D rb;
+    private GameObject player;
+
+    void Awake()
+    {
+        DefaultChaseSpeed = chaseSpeed;
+    }
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
-        // Find the player's position
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        // Use the cached player (becomes null once the player is destroyed)
         if (player != null)
         {
             Vector2 targetPosition = player.transform.position;

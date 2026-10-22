@@ -24,7 +24,7 @@ public class EnemyFollowManager : MonoBehaviour
 
         foreach (EnemyFollow enemy in enemies)
         {
-            enemy.chaseSpeed = 3f;
+            enemy.chaseSpeed = enemy.DefaultChaseSpeed;
         }
     }
 }
