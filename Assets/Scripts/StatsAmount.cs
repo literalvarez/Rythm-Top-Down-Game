@@ -23,7 +23,7 @@ public class StatsAmount : MonoBehaviour
     {
         // Update TMP text components with current values from PlayerShooting script without variable names
         bulletsPerShotText.text = playerShooting.BulletsPerShot.ToString();
-        bulletSpreadAngleText.text = playerShooting.BulletSpreadAngle.ToString(/*"F2"*/) + "°";
+        bulletSpreadAngleText.text = playerShooting.BulletSpreadAngle.ToString(/*"F2"*/) + "Â°";
         maxBulletBonusesText.text = playerShooting.maxBulletBounces.ToString();
         maxBulletRangeText.text = playerShooting.maxBulletRange.ToString(/*"F2"*/) + "m";
         maxDashDistanceText.text = playerDashScript.dashDistance.ToString("F2") + "m";
