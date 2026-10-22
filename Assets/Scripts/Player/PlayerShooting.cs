@@ -21,6 +21,8 @@ public class PlayerShooting : MonoBehaviour
     public int maxBulletBounces = 1;
     public float maxBulletRange = 20f;
 
+    private Coroutine shootWindowCoroutine;
+    private Coroutine reloadWindowCoroutine;
 
     void Start()
     {
@@ -76,7 +78,7 @@ public class PlayerShooting : MonoBehaviour
             shootfx.Play();
             shootSFX.Play();
             
-            StopCoroutine(DisableShootingCoroutine());
+            StopWindow(ref shootWindowCoroutine);
             CurrentAmmo = CurrentAmmo - 1;
             UpdateBulletVisuals();
             canShoot = false;
@@ -88,7 +90,7 @@ public class PlayerShooting : MonoBehaviour
         {
             CurrentAmmo = MaxAmmo;
             
-            StopCoroutine(DisableReloadingCoroutine());
+            StopWindow(ref reloadWindowCoroutine);
             UpdateBulletVisuals();
             canReload = false;
         }
@@ -105,25 +107,39 @@ public class PlayerShooting : MonoBehaviour
     public void EnableShooting()
     {
         canShoot = true;
-        StartCoroutine(DisableShootingCoroutine());
+        // Restart the window so an older beat's timer can't close this one early
+        StopWindow(ref shootWindowCoroutine);
+        shootWindowCoroutine = StartCoroutine(DisableShootingCoroutine());
     }
     public void EnableReload () // RELOAD RELOAD RELOAD // RELOAD RELOAD RELOAD // RELOAD RELOAD RELOAD
     {
         canReload = true;
-        StartCoroutine(DisableReloadingCoroutine());
+        StopWindow(ref reloadWindowCoroutine);
+        reloadWindowCoroutine = StartCoroutine(DisableReloadingCoroutine());
+    }
+
+    private void StopWindow(ref Coroutine window)
+    {
+        if (window != null)
+        {
+            StopCoroutine(window);
+            window = null;
+        }
     }
 
     private IEnumerator DisableShootingCoroutine()
     {
         yield return new WaitForSeconds(0.25f); // Wait for 0.25 seconds
-            
+
         canShoot = false;
+        shootWindowCoroutine = null;
     }
     private IEnumerator DisableReloadingCoroutine() // RELOAD RELOAD RELOAD // RELOAD RELOAD RELOAD // RELOAD RELOAD RELOAD
     {
         yield return new WaitForSeconds(0.25f); // Wait for 0.25 seconds
 
         canReload = false;
+        reloadWindowCoroutine = null;
     }
     // Method to set the number of bullets per shot
 
@@ -202,7 +218,7 @@ public class PlayerShooting : MonoBehaviour
             shootfx.Play();
             shootSFX.Play();
 
-            StopCoroutine(DisableShootingCoroutine());
+            StopWindow(ref shootWindowCoroutine);
             CurrentAmmo = CurrentAmmo - 1;
             UpdateBulletVisuals();
             canShoot = false;

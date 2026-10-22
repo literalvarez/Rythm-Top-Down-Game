@@ -38,6 +38,9 @@ public class DashEnemy : MonoBehaviour
     public void EnemyDash()
     {
          
+        // Player is dead, nothing to dash at
+        if (playerTransform == null) return;
+
         if (DashMore || shouldDash )
         {
             Vector2 dashDirection = (playerTransform.position - transform.position).normalized;
@@ -53,6 +56,9 @@ public class DashEnemy : MonoBehaviour
 
     private void OnDestroy()
     {
+        // Stop the dash tween so it doesn't move a destroyed enemy
+        transform.DOKill();
+
         if (enemyManager != null)
         {
             enemyManager.UnregisterEnemy(this);
