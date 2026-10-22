@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,14 +21,21 @@ public static class SceneTeardown
     // Use this instead of SceneManager.LoadScene so OnDestroy scripts know the scene is closing
     public static void LoadScene(int buildIndex)
     {
-        IsTearingDown = true;
+        BeginTeardown();
         SceneManager.LoadScene(buildIndex);
     }
 
     public static void LoadScene(string sceneName)
     {
-        IsTearingDown = true;
+        BeginTeardown();
         SceneManager.LoadScene(sceneName);
+    }
+
+    private static void BeginTeardown()
+    {
+        IsTearingDown = true;
+        // DOTween survives scene loads, so kill the old scene's tweens before their objects are destroyed
+        DOTween.KillAll();
     }
 
     private static void OnQuitting()
