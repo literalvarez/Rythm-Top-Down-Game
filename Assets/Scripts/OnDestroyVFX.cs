@@ -6,6 +6,9 @@ public class OnDestroyVFX : MonoBehaviour
 
     void OnDestroy()
     {
+        // Don't spawn VFX while the scene is closing
+        if (SceneTeardown.IsTearingDown || particlePrefab == null) return;
+
         // Instantiate the particle system at the position of the destroyed game object
         GameObject particleSystem = Instantiate(particlePrefab, transform.position, Quaternion.identity);
 

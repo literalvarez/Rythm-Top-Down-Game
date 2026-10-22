@@ -16,7 +16,7 @@ public class WinnerLogic : MonoBehaviour
     public void RestartScene()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneTeardown.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void QuitGame()
     {

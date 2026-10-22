@@ -18,8 +18,8 @@ public class AddScoreOnDestroy : MonoBehaviour
 
     void OnDestroy()
     {
-        // Check if the ScoreManager script is found
-        if (scoreManager != null)
+        // Check if the ScoreManager script is found and the scene isn't closing
+        if (scoreManager != null && !SceneTeardown.IsTearingDown)
         {
             // Add score when the GameObject is destroyed
             scoreManager.AddScore(scoreToAdd);

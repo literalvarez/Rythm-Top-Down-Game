@@ -8,6 +8,8 @@ public class OnShieldDestroyCall : MonoBehaviour
     public OnShieldDestroy ShieldDestroyLogic;
     void OnDestroy()
     {
+        if (SceneTeardown.IsTearingDown || ShieldDestroyLogic == null) return;
+
         ShieldDestroyLogic.ShieldOnDestroy();
     }
 }

@@ -7,6 +7,9 @@ public class PlayOnDeath : MonoBehaviour
 
     private void OnDestroy()
     {
+        // Don't spawn the death sound while the scene is closing
+        if (SceneTeardown.IsTearingDown) return;
+
         SpawnPrefab();
     }
 
