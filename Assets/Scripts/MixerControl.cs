@@ -7,21 +7,37 @@ public class MixerControl : MonoBehaviour
     public AudioMixer mixer; // Reference to your Audio Mixer
     public Slider volumeSlider; // Reference to your Slider UI element
 
+    // Exposed mixer parameter to control. Also used as the PlayerPrefs key,
+    // so it shares the saved value with the Home settings menu (MusicSettings).
+    [SerializeField] private string parameterName = "MusicVolume";
+
     private void Start()
     {
+        // Show the saved volume, then apply it
+        volumeSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat(parameterName, 1f));
+        SetVolume(volumeSlider.value);
+
         // Subscribe to the slider's value change event
-        volumeSlider.onValueChanged.AddListener(SetVolume);
+        volumeSlider.onValueChanged.AddListener(OnSliderChanged);
     }
 
-    // Called when the slider value changes
+    private void OnSliderChanged(float volume)
+    {
+        SetVolume(volume);
+
+        // Save right away: WebGL builds never call OnApplicationQuit
+        PlayerPrefs.SetFloat(parameterName, volume);
+        PlayerPrefs.Save();
+    }
+
     private void SetVolume(float volume)
     {
-        // Set the volume of the entire Audio Mixer using the slider value
-        mixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
+        mixer.SetFloat(parameterName, ToDecibels(volume));
+    }
 
-        // Log the received volume value to the console for debugging purposes
-        Debug.Log("Received Volume: " + volume);
-
-        // Optional: You can update UI elements or perform other actions here
+    // Converts a 0-1 slider value to decibels. 0 maps to -80 dB (silent) instead of -Infinity.
+    public static float ToDecibels(float volume)
+    {
+        return Mathf.Log10(Mathf.Max(volume, 0.0001f)) * 20f;
     }
 }

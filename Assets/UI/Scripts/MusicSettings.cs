@@ -14,39 +14,30 @@ public class MusicSettings : MonoBehaviour
 
     private void Start()
     {
-        // Load saved volume settings from PlayerPrefs
-        masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 1f);
-        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
-
-        // Set initial volumes
-        SetVolume("MasterVolume", masterSlider.value);
-        SetVolume("SFXVolume", sfxSlider.value);
-        SetVolume("MusicVolume", musicSlider.value);
+        // Load saved settings, apply them, and update the mixer whenever a slider moves
+        SetupSlider(masterSlider, "MasterVolume");
+        SetupSlider(sfxSlider, "SFXVolume");
+        SetupSlider(musicSlider, "MusicVolume");
     }
 
-    private void Update()
+    private void SetupSlider(Slider slider, string parameterName)
     {
-        // Update volume levels in real-time
-        SetVolume("MasterVolume", masterSlider.value);
-        SetVolume("SFXVolume", sfxSlider.value);
-        SetVolume("MusicVolume", musicSlider.value);
+        slider.SetValueWithoutNotify(PlayerPrefs.GetFloat(parameterName, 1f));
+        SetVolume(parameterName, slider.value);
+
+        slider.onValueChanged.AddListener(volume =>
+        {
+            SetVolume(parameterName, volume);
+
+            // Save on every change: WebGL builds never call OnApplicationQuit
+            PlayerPrefs.SetFloat(parameterName, volume);
+            PlayerPrefs.Save();
+        });
     }
 
     // Function to set the volume in the Audio Mixer
     private void SetVolume(string parameterName, float volume)
     {
-        // If the volume is 0, set it to -80 dB (minimum value)
-        float dBVolume = (volume > 0) ? Mathf.Log10(volume) * 20 : -80;
-        audioMixer.SetFloat(parameterName, dBVolume);
-    }
-
-    // Save volume settings to PlayerPrefs when the application quits
-    private void OnApplicationQuit()
-    {
-        PlayerPrefs.SetFloat("MasterVolume", masterSlider.value);
-        PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);
-        PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
-        PlayerPrefs.Save();
+        audioMixer.SetFloat(parameterName, MixerControl.ToDecibels(volume));
     }
 }
