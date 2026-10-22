@@ -90,12 +90,15 @@ public class Bullet : MonoBehaviour
         }
         else if (other.CompareTag("Wall") && !enemyBullet)
         {
-            hitSFX.Play();
-
-
             if (currentBonuces == maxBonuces)
-            { 
-                Destroy(gameObject);             
+            {
+                // Bullet dies this hit, so play the sound on its own object or it gets cut off
+                PlayDetachedSFX(hitSFX);
+                Destroy(gameObject);
+            }
+            else if (hitSFX != null)
+            {
+                hitSFX.Play();
             }
             currentBonuces++;
         }
@@ -140,5 +143,24 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    // Plays a copy of the sound on a temporary object that outlives the bullet
+    private void PlayDetachedSFX(AudioSource source)
+    {
+        if (source == null || source.clip == null) return;
+
+        GameObject sfxObject = new GameObject("BulletHitSFX");
+        sfxObject.transform.position = transform.position;
+
+        AudioSource sfx = sfxObject.AddComponent<AudioSource>();
+        sfx.clip = source.clip;
+        sfx.outputAudioMixerGroup = source.outputAudioMixerGroup;
+        sfx.volume = source.volume;
+        sfx.pitch = source.pitch;
+        sfx.spatialBlend = source.spatialBlend;
+        sfx.Play();
+
+        Destroy(sfxObject, source.clip.length / Mathf.Max(0.01f, Mathf.Abs(source.pitch)));
     }
 }
