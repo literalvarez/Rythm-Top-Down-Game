@@ -15,7 +15,7 @@ public class DebugTools : MonoBehaviour
     private static readonly string[] EnemyPrefabNames = { "FollowingEnemy", "ShootEnemy", "DashingEnemy", "DashingBossy" };
     private static readonly string[] EnemyLabels = { "Chaser", "Shooter", "Dasher", "Boss" };
 
-    private const float PanelWidth = 170f;
+    private const float PanelWidth = 221f;
     private const float Margin = 8f;
 
     private bool isVisible = true;
@@ -90,7 +90,7 @@ public class DebugTools : MonoBehaviour
 
         if (textStyle == null)
         {
-            textStyle = new GUIStyle(GUI.skin.label) { fontSize = 11, richText = true };
+            textStyle = new GUIStyle(GUI.skin.label) { fontSize = 14, richText = true };
             textStyle.normal.textColor = Color.white;
             backgroundTexture = new Texture2D(1, 1);
             backgroundTexture.SetPixel(0, 0, new Color(0f, 0f, 0f, 0.6f));
@@ -109,11 +109,11 @@ public class DebugTools : MonoBehaviour
         }
 
         GUIContent content = new GUIContent(text);
-        float height = textStyle.CalcHeight(content, PanelWidth - 12f) + 8f;
+        float height = textStyle.CalcHeight(content, PanelWidth - 16f) + 10f;
         Rect panel = new Rect(Screen.width - PanelWidth - Margin, Margin, PanelWidth, height);
 
         GUI.DrawTexture(panel, backgroundTexture);
-        GUI.Label(new Rect(panel.x + 6f, panel.y + 4f, panel.width - 12f, panel.height - 8f), content, textStyle);
+        GUI.Label(new Rect(panel.x + 8f, panel.y + 5f, panel.width - 16f, panel.height - 10f), content, textStyle);
     }
 
     private void OnDestroy()
