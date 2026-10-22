@@ -35,14 +35,14 @@ public class ShootingEnemyManager : MonoBehaviour
     // Method to make all ShootingEnemy instances shoot
     public void MakeEnemiesShoot()
     {
-        if (CanShootDelay == true) 
-        { 
+        // Shoot every other call
+        if (CanShootDelay == true)
+        {
             foreach (ShootingEnemy enemy in enemyList)
             {
                 enemy.EnemyShoot();
             }
-            CanShootDelay = false;
         }
-        CanShootDelay = true;
-}
+        CanShootDelay = !CanShootDelay;
+    }
 }
