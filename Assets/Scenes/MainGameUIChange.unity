@@ -53051,7 +53051,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1058900955}
   - component: {fileID: 1058900956}
-  - component: {fileID: 1058900957}
   m_Layer: 5
   m_Name: MAX FPS SLIDER
   m_TagString: Untagged
@@ -53133,20 +53132,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1058900957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058900954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9812b45c1c28e514e816477980244a16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 3f84a3a10485cb44d95993dae083a894, type: 2}
-  volumeSlider: {fileID: 1058900956}
 --- !u!1 &1059222350
 GameObject:
   m_ObjectHideFlags: 0
@@ -94289,8 +94274,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9812b45c1c28e514e816477980244a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 20707e6d4d47603488cb8006ca876262, type: 2}
+  mixer: {fileID: 24100000, guid: b3429cab10e4f5847a177312db811ea7, type: 2}
   volumeSlider: {fileID: 2103549991}
+  parameterName: MusicVolume
 --- !u!1 &2106426298
 GameObject:
   m_ObjectHideFlags: 0
