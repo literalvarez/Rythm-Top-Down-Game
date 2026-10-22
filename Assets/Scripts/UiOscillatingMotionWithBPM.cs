@@ -20,6 +20,8 @@ public class UiOscillatingMotionWithBPM : MonoBehaviour
     private float halfBeatDuration;
 
     private Vector2 initialPosition;
+    private Sequence loopSequence; // The running oscillation, so we can stop it on song changes
+    private Coroutine lateStartCoroutine;
 
     private void Start()
     {
@@ -46,22 +48,11 @@ public class UiOscillatingMotionWithBPM : MonoBehaviour
             endPos = startPos - Vector2.right * amplitude;
         }
 
-        if (!isOffBeat)
-        {
-            Sequence offbeat = DOTween.Sequence();
-            offbeat.AppendCallback(() => rectTransform.anchoredPosition = endPos);
-            offbeat.Append(rectTransform.DOLocalMove(startPos, beatDuration).SetEase(easeType));
-
-            offbeat.SetLoops(-1);
-        }
-        else
-        {
-            Sequence beat = DOTween.Sequence();
-            beat.AppendCallback(() => rectTransform.anchoredPosition = endPos);
-            beat.Append(rectTransform.DOLocalMove(startPos, beatDuration).SetEase(easeType));
-
-            beat.SetLoops(-1);
-        }
+        loopSequence?.Kill();
+        loopSequence = DOTween.Sequence();
+        loopSequence.AppendCallback(() => rectTransform.anchoredPosition = endPos);
+        loopSequence.Append(rectTransform.DOAnchorPos(startPos, beatDuration).SetEase(easeType));
+        loopSequence.SetLoops(-1);
     }
 
     //public void StartOnce()
@@ -76,19 +67,19 @@ public class UiOscillatingMotionWithBPM : MonoBehaviour
     public void StopInstrument()
     {
         //Started = false;
-        DOTween.Kill(DoTweenKilltarget);
+        StopLoop();
         rectTransform.anchoredPosition = initialPosition;
-        
+
     }
 
     public void RestartInstrument()
     {
         halfBeatDuration = (60f / bpm * durationMultiplier) / 2;
+        StopLoop();
         rectTransform.anchoredPosition = initialPosition;
-        DOTween.Kill(DoTweenKilltarget);
         if (LateStart)
         {
-            StartCoroutine(StartThisLate(halfBeatDuration));
+            lateStartCoroutine = StartCoroutine(StartThisLate(halfBeatDuration));
         }
         else 
         {
@@ -101,6 +92,28 @@ public class UiOscillatingMotionWithBPM : MonoBehaviour
         float halfDuration = duration;
         yield return new WaitForSeconds(halfDuration);
 
+        lateStartCoroutine = null;
         StartInstrument();
+    }
+
+    // Stops this object's oscillation (and a pending late start) without touching other tweens
+    private void StopLoop()
+    {
+        if (lateStartCoroutine != null)
+        {
+            StopCoroutine(lateStartCoroutine);
+            lateStartCoroutine = null;
+        }
+        loopSequence?.Kill();
+        loopSequence = null;
+        if (DoTweenKilltarget != null)
+        {
+            DOTween.Kill(DoTweenKilltarget);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        loopSequence?.Kill();
     }
 }

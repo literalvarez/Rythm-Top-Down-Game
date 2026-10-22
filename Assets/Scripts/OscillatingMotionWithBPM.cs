@@ -11,6 +11,7 @@ public class OscillatingMotionWithBPM : MonoBehaviour
     public bool Started = false;
 
     private Vector2 initialPosition;
+    private Sequence loopSequence; // The running oscillation, so we only kill our own tween
 
     private void Start()
     {
@@ -30,22 +31,11 @@ public class OscillatingMotionWithBPM : MonoBehaviour
             endPos = startPos + Vector2.left * amplitude;
         }
 
-        if (!isOffBeat)
-        {
-            Sequence offbeat = DOTween.Sequence();
-            offbeat.AppendCallback(() => transform.localPosition = endPos);
-            offbeat.Append(transform.DOLocalMove(startPos, beatDuration).SetEase(easeType));
-
-            offbeat.SetLoops(-1);
-        }
-        else
-        {
-            Sequence beat = DOTween.Sequence();
-            beat.AppendCallback(() => transform.localPosition = endPos);
-            beat.Append(transform.DOLocalMove(startPos, beatDuration).SetEase(easeType));
-
-            beat.SetLoops(-1);
-        }
+        loopSequence?.Kill();
+        loopSequence = DOTween.Sequence();
+        loopSequence.AppendCallback(() => transform.localPosition = endPos);
+        loopSequence.Append(transform.DOLocalMove(startPos, beatDuration).SetEase(easeType));
+        loopSequence.SetLoops(-1);
     }
 
     public void StartOnce()
@@ -61,14 +51,19 @@ public class OscillatingMotionWithBPM : MonoBehaviour
     public void StopInstrument()
     {
         Started = false;
+        loopSequence?.Kill();
         transform.position = initialPosition;
-        DOTween.KillAll();
     }
 
     public void RestartInstrument()
     {
+        loopSequence?.Kill();
         transform.position = initialPosition;
-        DOTween.KillAll();
         StartInstrument();
+    }
+
+    private void OnDestroy()
+    {
+        loopSequence?.Kill();
     }
 }
