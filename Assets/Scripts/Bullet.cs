@@ -81,14 +81,20 @@ public class Bullet : MonoBehaviour
         }
         else if (other.CompareTag("Player") && enemyBullet)
         {
-            // Destroy the player
-            Destroy(other.gameObject);
+            // Destroy the player (unless damage is off in the debug tools)
+            if (DebugTools.PlayerCanTakeDamage)
+            {
+                Destroy(other.gameObject);
+            }
             Destroy(gameObject);
         }
         else if (other.CompareTag("Shield") && enemyBullet)
         {
-            // Destroy the player
-            Destroy(other.gameObject);
+            // Destroy the shield (unless damage is off in the debug tools)
+            if (DebugTools.PlayerCanTakeDamage)
+            {
+                Destroy(other.gameObject);
+            }
             Destroy(gameObject);
         }
         else if (other.CompareTag("Wall") && !enemyBullet)

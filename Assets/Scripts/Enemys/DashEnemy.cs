@@ -69,12 +69,19 @@ public class DashEnemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
+            // Kill the player (unless damage is off in the debug tools)
+            if (DebugTools.PlayerCanTakeDamage)
+            {
+                Destroy(other.gameObject);
+            }
         }
         else if (other.CompareTag("Shield"))
         {
-            // Destroy the player
-            Destroy(other.gameObject);
+            // Break the shield (unless damage is off); the enemy dies either way
+            if (DebugTools.PlayerCanTakeDamage)
+            {
+                Destroy(other.gameObject);
+            }
             Destroy(gameObject);
         }
     }
