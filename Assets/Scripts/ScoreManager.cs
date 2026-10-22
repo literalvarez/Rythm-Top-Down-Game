@@ -59,7 +59,8 @@ public class ScoreManager : MonoBehaviour
         score += points;
         currentLevelXP += points; // Track XP gained within the current level
 
-        // Check if the player has gained enough XP to level up
+        // Check if the player has gained enough XP to level up.
+        // Only one level per call: onLevelUp toggles the level-up pause, so two in a row would unpause it.
         if (currentLevelXP >= xpRequired)
         {
             LevelUp();
@@ -72,10 +73,13 @@ public class ScoreManager : MonoBehaviour
     void LevelUp()
     {
         currentLevel++;
-        currentLevelXP = 0; // Reset XP points within the current level to 0
+        currentLevelXP -= xpRequired; // Carry leftover XP into the next level
         xpRequired *= 2; // Double the XP requirement for the next level
         onLevelUp.Invoke(); // Trigger UnityEvent when leveling up
-        xpSlider.value = 0; // Reset the XP slider to 0
+        if (xpSlider != null)
+        {
+            xpSlider.value = 0; // Reset the XP slider to 0
+        }
     }
 
     // Update the UI elements to display current score, level, XP progress, and requirements
@@ -116,6 +120,5 @@ public class ScoreManager : MonoBehaviour
     void UpdateXpCircleSlider()
     {
         xpCircleSlider.fillAmount = (float)currentLevelXP/xpRequired;
-        Debug.Log("Current level xp is " + currentLevelXP);
     }
 }
