@@ -66,8 +66,11 @@ public class Bullet : MonoBehaviour
         // Check if the bullet hits an enemy (or any other object you want to damage)
         if (other.CompareTag("Enemy"))
         {
-            // Deal damage to the enemy
-            Destroy(other.gameObject);
+            // Deal damage to the enemy, unless it's an enemy bullet after the player died
+            if (!(enemyBullet && OnPlayerDestroy.IsPlayerDead))
+            {
+                Destroy(other.gameObject);
+            }
             Destroy(gameObject);
         }
         else if (other.CompareTag("RangedEnemy") && !enemyBullet)

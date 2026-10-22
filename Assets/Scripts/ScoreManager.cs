@@ -56,6 +56,9 @@ public class ScoreManager : MonoBehaviour
     // Method to add score
     public void AddScore(int points)
     {
+        // The run is over once the player dies: no more score, XP or level-ups
+        if (OnPlayerDestroy.IsPlayerDead) return;
+
         score += points;
         currentLevelXP += points; // Track XP gained within the current level
 
