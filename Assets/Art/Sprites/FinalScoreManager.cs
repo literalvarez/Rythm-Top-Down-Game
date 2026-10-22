@@ -14,15 +14,29 @@ public class FinalScoreManager : MonoBehaviour
     private ScoreManager GameScore;
 
     public UnityEvent<string, int> submitScoreEvent;
-    
 
-    void Start()
+    private const int MaxNameLength = 16;
+
+    void OnEnable()
     {
+        // Refresh every time the end screen opens, not only the first time
         inputScore.text = "" + GameScore.score;
     }
     public void SubmitScore()
     {
-        submitScoreEvent.Invoke(inputName.text, int.Parse(inputScore.text));
+        string playerName = inputName.text.Trim();
+        if (playerName.Length == 0)
+        {
+            // No name typed: keep the player on the input field instead of submitting
+            inputName.ActivateInputField();
+            return;
+        }
+        if (playerName.Length > MaxNameLength)
+        {
+            playerName = playerName.Substring(0, MaxNameLength);
+        }
+
+        submitScoreEvent.Invoke(playerName, GameScore.score);
     }
 
 }
