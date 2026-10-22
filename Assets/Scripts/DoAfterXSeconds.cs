@@ -19,7 +19,6 @@ public class DoAfterXSeconds : MonoBehaviour
         // Check if the event has not been invoked yet
         if (!hasInvoked)
         {
-            Debug.Log("DoAferX TRIGGERED");
             // Invoke the UnityEvent
             onTimerComplete.Invoke();
             hasInvoked = true; // Set the flag to true to prevent multiple invocations

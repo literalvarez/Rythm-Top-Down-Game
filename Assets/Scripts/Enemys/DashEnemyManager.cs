@@ -35,7 +35,6 @@ public class DashEnemyManager : MonoBehaviour
     {
         foreach (DashEnemy enemy in enemyList)
         {
-            Debug.Log("Shootas Shootin");
             enemy.EnemyDash();
         }
     }

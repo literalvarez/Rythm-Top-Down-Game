@@ -24,7 +24,6 @@ public class RotateOnCall : MonoBehaviour
             .OnComplete(() =>
             {
                 // This code block will be executed after rotation is complete
-                Debug.Log("Rotation complete!");
             });
     }
 }

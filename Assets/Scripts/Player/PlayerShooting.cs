@@ -51,7 +51,6 @@ public class PlayerShooting : MonoBehaviour
                 Bullet bulletScript = bullet.GetComponent<Bullet>();
                 if (bulletScript != null)
                 {
-                    Debug.Log("Setting Values");
                     bulletScript.maxTravelDistance = maxBulletRange;
                     bulletScript.maxBonuces = maxBulletBounces;
                 }
@@ -68,7 +67,6 @@ public class PlayerShooting : MonoBehaviour
 
                     if (bulletScript != null)
                     {
-                        Debug.Log("Setting Values");
                         bulletScript.maxTravelDistance = maxBulletRange;
                         bulletScript.maxBonuces = maxBulletBounces;
                     }
@@ -191,7 +189,6 @@ public class PlayerShooting : MonoBehaviour
                 Bullet bulletScript = bullet.GetComponent<Bullet>();
                 if (bulletScript != null)
                 {
-                    Debug.Log("Setting Values");
                     bulletScript.maxTravelDistance = maxBulletRange;
                     bulletScript.maxBonuces = maxBulletBounces;
                 }
@@ -208,7 +205,6 @@ public class PlayerShooting : MonoBehaviour
 
                     if (bulletScript != null)
                     {
-                        Debug.Log("Setting Values");
                         bulletScript.maxTravelDistance = maxBulletRange;
                         bulletScript.maxBonuces = maxBulletBounces;
                     }
